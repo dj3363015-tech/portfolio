@@ -16,6 +16,7 @@
       --green: #c4f36b;
       --green-dark: #36532b;
       --white: #fffefa;
+      --ease-out: cubic-bezier(.22, 1, .36, 1);
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --page-width: 1160px;
@@ -38,7 +39,7 @@
       outline-offset: 4px;
       border-radius: 3px;
     }
-    .wrap { width: min(var(--page-width), calc(100% - 64px)); margin-inline: auto; }
+    .wrap { width: min(var(--page-width), calc(100% - clamp(40px, 8vw, 64px))); margin-inline: auto; }
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -124,9 +125,30 @@
       grid-template-columns: 1.08fr .92fr;
       align-items: center;
       gap: 48px;
-      padding-block: 92px 100px;
+      padding-block: clamp(68px, 8vw, 100px);
     }
-    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy { position: relative; z-index: 1; animation: rise-in .8s var(--ease-out) both; }
+    .hero-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      border: 1px solid #dce2d3;
+      border-radius: 999px;
+      background: rgb(255 254 250 / 75%);
+      color: #52634b;
+      font-size: .68rem;
+      font-weight: 650;
+    }
+    .availability::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #78a843;
+      box-shadow: 0 0 0 3px rgb(120 168 67 / 16%);
+      content: "";
+    }
     h1, h2, h3, p { margin-top: 0; }
     h1 {
       max-width: 710px;
@@ -154,12 +176,13 @@
       font-size: .85rem;
       font-weight: 650;
       text-decoration: none;
-      transition: transform .2s ease, background .2s ease;
+      transition: transform .35s var(--ease-out), background .35s var(--ease-out);
     }
-    .button:hover { transform: translateY(-2px); background: #33443a; }
+    .button:hover { transform: translateY(-3px); background: #33443a; }
     .button.secondary { background: transparent; color: var(--ink); }
     .button.secondary:hover { background: white; }
-    .button-arrow { font-size: 1.05rem; line-height: 1; }
+    .button-arrow { display: inline-block; font-size: 1.05rem; line-height: 1; transition: transform .35s var(--ease-out); }
+    .button:hover .button-arrow { transform: translate(2px, -2px); }
 
     .hero-art {
       position: relative;
@@ -170,6 +193,7 @@
       border-radius: 48% 48% 45% 45% / 42% 42% 48% 48%;
       background: #e9eddf;
       isolation: isolate;
+      animation: shape-drift 14s ease-in-out infinite;
     }
     .hero-art::before, .hero-art::after {
       position: absolute;
@@ -189,6 +213,7 @@
       border: 1px solid rgb(43 63 46 / 22%);
       border-radius: 50%;
       transform: translate(-50%, -50%) rotate(-34deg);
+      animation: orbit-drift 28s linear infinite;
     }
     .orbit-dot {
       position: absolute;
@@ -199,6 +224,7 @@
       border: 4px solid var(--paper);
       border-radius: 50%;
       background: #89ad50;
+      animation: dot-breathe 4s ease-in-out infinite;
     }
     .art-card {
       position: relative;
@@ -209,6 +235,7 @@
       background: var(--white);
       box-shadow: 0 25px 65px rgb(37 53 38 / 13%);
       transform: rotate(-5deg);
+      animation: card-float 7s ease-in-out infinite;
     }
     .art-card-top { display: flex; justify-content: space-between; margin-bottom: 20px; }
     .art-dots { display: flex; gap: 5px; }
@@ -232,7 +259,7 @@
     .art-sparkline svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .float-note {
       position: absolute;
-      right: 1%;
+      right: 8%;
       bottom: 14%;
       padding: 11px 15px;
       border-radius: 12px;
@@ -242,6 +269,7 @@
       font-size: .67rem;
       font-weight: 600;
       transform: rotate(4deg);
+      animation: note-float 6s ease-in-out infinite;
     }
     .float-note span { display: inline-grid; width: 19px; height: 19px; margin-right: 5px; place-items: center; border-radius: 50%; background: var(--green); color: var(--ink); }
     .side-caption {
@@ -269,7 +297,7 @@
     .skill-list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
     .skill-chip { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: #4e5952; font-size: .7rem; font-weight: 600; }
 
-    .section { padding-block: 112px; }
+    .section { padding-block: clamp(73px, 9vw, 112px); }
     .section-heading {
       display: flex;
       align-items: end;
@@ -293,14 +321,33 @@
       min-height: 328px;
       overflow: hidden;
       place-items: center;
-      border-radius: 12px;
+      border-radius: 16px;
       isolation: isolate;
+      transition: border-radius .5s var(--ease-out), transform .5s var(--ease-out);
     }
+    .project-card:hover .project-visual { border-radius: 24px; }
     .project-visual::before, .project-visual::after { position: absolute; z-index: -1; content: ""; }
-    .visual-sage { background: #e8eadf; }
+    .visual-sage { background: linear-gradient(145deg, #edf0e6, #dfe7d5); }
     .visual-sage::before { inset: 0; background-image: radial-gradient(#adb79c 1px, transparent 1px); background-position: center; background-size: 18px 18px; opacity: .45; }
-    .visual-blue { background: #dfe8ec; }
+    .visual-sage::after { right: -60px; bottom: -120px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgb(173 206 125 / 48%), rgb(173 206 125 / 0%) 70%); }
+    .visual-blue { background: linear-gradient(145deg, #e8eff1, #d4e3e8); }
     .visual-blue::before { inset: 0; background: linear-gradient(135deg, transparent 49.7%, rgb(59 97 112 / 9%) 50%, transparent 50.3%); background-size: 30px 30px; }
+    .visual-blue::after { top: -120px; left: -90px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgb(137 185 196 / 43%), rgb(137 185 196 / 0%) 70%); }
+    .visual-caption {
+      position: absolute;
+      z-index: 1;
+      top: 19px;
+      left: 19px;
+      padding: 7px 11px;
+      border: 1px solid rgb(255 255 255 / 66%);
+      border-radius: 999px;
+      background: rgb(255 254 250 / 78%);
+      color: #4f5b51;
+      font-size: .61rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      backdrop-filter: blur(8px);
+    }
     .mock-window {
       width: 74%;
       overflow: hidden;
@@ -309,10 +356,11 @@
       background: #fffefa;
       box-shadow: 0 18px 45px rgb(28 41 35 / 13%);
       transform: rotate(-2deg);
-      transition: transform .3s ease;
+      transition: transform .55s var(--ease-out), box-shadow .55s var(--ease-out);
     }
     .project-card:nth-child(2) .mock-window { transform: rotate(2deg); }
-    .project-card:hover .mock-window { transform: rotate(0) translateY(-4px); }
+    .project-card:hover .mock-window { transform: rotate(0) translateY(-4px); box-shadow: 0 25px 55px rgb(28 41 35 / 17%); }
+    .projects .project-card:nth-child(2) { transition-delay: .12s; }
     .mock-bar { display: flex; height: 28px; align-items: center; gap: 4px; padding: 0 10px; border-bottom: 1px solid #eef0ea; }
     .mock-bar i { width: 5px; height: 5px; border-radius: 50%; background: #d6dbd3; }
     .mock-content { display: grid; min-height: 195px; grid-template-columns: .9fr 1.1fr; gap: 13px; padding: 19px; }
@@ -338,6 +386,23 @@
     .project-index { color: #8b948c; font-size: .74rem; font-weight: 650; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
     .project-tags span { padding: 5px 9px; border-radius: 999px; background: #eaebe5; color: #556057; font-size: .64rem; font-weight: 600; }
+
+    .experience-section { padding-top: 0; }
+    .experience-list { border-top: 1px solid var(--line); }
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr 190px;
+      gap: 32px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .35s var(--ease-out), background-color .35s var(--ease-out);
+    }
+    .experience-item:hover { padding-inline: 12px; background: rgb(255 254 250 / 55%); }
+    .experience-role { margin: 0 0 4px; font-size: 1.12rem; font-weight: 680; letter-spacing: -.04em; }
+    .experience-company { margin: 0; color: #566158; font-size: .88rem; font-weight: 600; }
+    .experience-description { max-width: 690px; margin: 12px 0 0; color: var(--muted); font-size: .84rem; }
+    .experience-dates { color: #68736a; font-size: .78rem; text-align: right; }
+    .experience-hint { max-width: 620px; margin: 23px 0 0; color: var(--muted); font-size: .79rem; }
 
     .about-section { background: #e9ede3; }
     .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; align-items: start; }
@@ -386,6 +451,30 @@
     .footer-links { display: flex; gap: 20px; }
     .footer-links a { color: #59645c; font-size: .73rem; text-decoration: none; }
     .footer-links a:hover { color: var(--ink); }
+    @keyframes shape-drift {
+      0%, 100% { border-radius: 48% 48% 45% 45% / 42% 42% 48% 48%; }
+      50% { border-radius: 44% 52% 48% 43% / 47% 39% 52% 44%; }
+    }
+    @keyframes orbit-drift {
+      from { transform: translate(-50%, -50%) rotate(-34deg); }
+      to { transform: translate(-50%, -50%) rotate(326deg); }
+    }
+    @keyframes card-float {
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(-3deg) translateY(-7px); }
+    }
+    @keyframes note-float {
+      0%, 100% { transform: rotate(4deg) translateY(0); }
+      50% { transform: rotate(2deg) translateY(-5px); }
+    }
+    @keyframes dot-breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -401,6 +490,7 @@
       .section { padding-block: 88px; }
       .about-grid { gap: 52px; }
       .project-visual { min-height: 275px; }
+      .experience-section { padding-top: 0; }
     }
     @media (max-width: 620px) {
       .wrap { width: min(100% - 40px, var(--page-width)); }
@@ -422,7 +512,7 @@
       .nav-links a { padding: 12px 2px; }
       .nav-links .nav-contact { align-self: flex-start; margin-top: 6px; padding: 8px 15px; }
       .hero { grid-template-columns: 1fr; gap: 42px; padding-block: 68px 62px; }
-      h1 { max-width: 520px; font-size: clamp(3.5rem, 15vw, 5.4rem); }
+      h1 { max-width: 520px; font-size: clamp(2.9rem, 12.5vw, 4.4rem); }
       .hero-description { font-size: .96rem; }
       .hero-art { width: min(100%, 390px); min-height: 340px; justify-self: center; }
       .side-caption { left: 2%; }
@@ -431,6 +521,8 @@
       .section-heading > p { margin: 0; }
       .projects { grid-template-columns: 1fr; gap: 34px; }
       .project-visual { min-height: 300px; }
+      .experience-item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+      .experience-dates { text-align: left; }
       .about-grid { grid-template-columns: 1fr; gap: 25px; }
       .about-copy > p { font-size: .99rem; }
       .principles { gap: 20px; }
@@ -461,6 +553,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
         <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
@@ -470,7 +563,10 @@
   <main>
     <section class="hero wrap" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <span class="eyebrow">Web developer &amp; UX designer</span>
+        <div class="hero-kicker">
+          <span class="eyebrow">Web developer &amp; UX designer</span>
+          <span class="availability">Open to opportunities</span>
+        </div>
         <h1 id="hero-title">Curious by nature.<br><span class="serif">Thoughtful</span> by design.</h1>
         <p class="hero-description">Hi, I’m <strong>Your Name</strong> — an early-career designer and developer making the web a little easier, clearer, and more human.</p>
         <div class="button-row">
@@ -528,6 +624,7 @@
       <div class="projects">
         <article class="project-card reveal">
           <div class="project-visual visual-sage" aria-label="Preview illustration of a plant shop website">
+            <span class="visual-caption" aria-hidden="true">01 &nbsp; / &nbsp; E-COMMERCE</span>
             <div class="mock-window" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i></div>
               <div class="mock-content">
@@ -550,6 +647,7 @@
 
         <article class="project-card reveal">
           <div class="project-visual visual-blue" aria-label="Preview illustration of a personal finance dashboard">
+            <span class="visual-caption" aria-hidden="true">02 &nbsp; / &nbsp; FINTECH</span>
             <div class="mock-window" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i></div>
               <div class="mock-content">
@@ -577,6 +675,27 @@
           <div class="project-tags"><span>Product thinking</span><span>UI design</span><span>JavaScript</span></div>
         </article>
       </div>
+    </section>
+
+    <section class="section experience-section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">Where I’ve been</span>
+          <h2 id="experience-title">Experience that<br>shaped how I work.</h2>
+        </div>
+        <p>Every role brings something worth learning from. Here’s a look at the experience I’ve built along the way.</p>
+      </div>
+      <div class="experience-list reveal">
+        <article class="experience-item">
+          <div>
+            <h3 class="experience-role">[Your job title]</h3>
+            <p class="experience-company">[Company or organization] · [Location or Remote]</p>
+            <p class="experience-description">[In one or two sentences, describe what you did, who you worked with, and a specific result or skill you developed.]</p>
+          </div>
+          <div class="experience-dates">[Month Year] — [Month Year or Present]</div>
+        </article>
+      </div>
+      <p class="experience-hint">New to the field? Include relevant internships, volunteer work, freelance projects, or customer-facing roles—and highlight the skills that carry over.</p>
     </section>
 
     <section class="section about-section" id="about" aria-labelledby="about-title">
