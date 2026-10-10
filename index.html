@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f5f0">
   <meta name="description" content="A junior web developer and UX designer building thoughtful, accessible digital experiences.">
-  <title>Your Name — Web Developer &amp; UX Designer</title>
+  <title>Joseph Daniel — Web Developer &amp; UX Designer</title>
   <style>
     :root {
       color-scheme: light;
@@ -326,6 +326,17 @@
       transition: border-radius .5s var(--ease-out), transform .5s var(--ease-out);
     }
     .project-card:hover .project-visual { border-radius: 24px; }
+    .project-photo {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .72;
+      transition: transform .8s var(--ease-out);
+    }
+    .project-card:hover .project-photo { transform: scale(1.04); }
     .project-visual::before, .project-visual::after { position: absolute; z-index: -1; content: ""; }
     .visual-sage { background: linear-gradient(145deg, #edf0e6, #dfe7d5); }
     .visual-sage::before { inset: 0; background-image: radial-gradient(#adb79c 1px, transparent 1px); background-position: center; background-size: 18px 18px; opacity: .45; }
@@ -546,9 +557,9 @@
 <body>
   <header class="site-header">
     <nav class="nav wrap" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Your Name, home">
-        <span class="brand-mark" aria-hidden="true">YN</span>
-        <span>Your Name</span>
+      <a class="brand" href="#home" aria-label="Joseph Daniel, home">
+        <span class="brand-mark" aria-hidden="true">JD</span>
+        <span>Joseph Daniel</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
@@ -568,7 +579,7 @@
           <span class="availability">Open to opportunities</span>
         </div>
         <h1 id="hero-title">Curious by nature.<br><span class="serif">Thoughtful</span> by design.</h1>
-        <p class="hero-description">Hi, I’m <strong>Your Name</strong> — an early-career designer and developer making the web a little easier, clearer, and more human.</p>
+        <p class="hero-description">Hi, I’m <strong>Joseph Daniel</strong> — an early-career designer and developer making the web a little easier, clearer, and more human.</p>
         <div class="button-row">
           <a class="button" href="#work">Explore my work <span class="button-arrow" aria-hidden="true">↓</span></a>
           <a class="button secondary" href="#contact">Get in touch <span class="button-arrow" aria-hidden="true">↗</span></a>
@@ -624,6 +635,7 @@
       <div class="projects">
         <article class="project-card reveal">
           <div class="project-visual visual-sage" aria-label="Preview illustration of a plant shop website">
+            <img class="project-photo" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Lush green houseplant in a simple ceramic pot" loading="lazy" decoding="async">
             <span class="visual-caption" aria-hidden="true">01 &nbsp; / &nbsp; E-COMMERCE</span>
             <div class="mock-window" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i></div>
@@ -647,6 +659,7 @@
 
         <article class="project-card reveal">
           <div class="project-visual visual-blue" aria-label="Preview illustration of a personal finance dashboard">
+            <img class="project-photo" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Calculator, notebook, and pen arranged for budgeting" loading="lazy" decoding="async">
             <span class="visual-caption" aria-hidden="true">02 &nbsp; / &nbsp; FINTECH</span>
             <div class="mock-window" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i></div>
@@ -683,19 +696,18 @@
           <span class="eyebrow">Where I’ve been</span>
           <h2 id="experience-title">Experience that<br>shaped how I work.</h2>
         </div>
-        <p>Every role brings something worth learning from. Here’s a look at the experience I’ve built along the way.</p>
+        <p>Hands-on experience designing and building responsive websites.</p>
       </div>
       <div class="experience-list reveal">
         <article class="experience-item">
           <div>
-            <h3 class="experience-role">[Your job title]</h3>
-            <p class="experience-company">[Company or organization] · [Location or Remote]</p>
-            <p class="experience-description">[In one or two sentences, describe what you did, who you worked with, and a specific result or skill you developed.]</p>
+            <h3 class="experience-role">Independent Website Project</h3>
+            <p class="experience-company">Personal project · Remote</p>
+            <p class="experience-description">Designed and built a responsive portfolio website using HTML, CSS, and JavaScript, with a focus on clear navigation, accessible content, and mobile-friendly layouts.</p>
           </div>
-          <div class="experience-dates">[Month Year] — [Month Year or Present]</div>
+          <div class="experience-dates">March 2026</div>
         </article>
       </div>
-      <p class="experience-hint">New to the field? Include relevant internships, volunteer work, freelance projects, or customer-facing roles—and highlight the skills that carry over.</p>
     </section>
 
     <section class="section about-section" id="about" aria-labelledby="about-title">
@@ -732,7 +744,7 @@
 
   <footer class="footer">
     <div class="footer-inner wrap">
-      <p>© <span id="year"></span> Your Name. Made with care and a little curiosity.</p>
+      <p>© <span id="year"></span> Joseph Daniel. Made with care and a little curiosity.</p>
       <div class="footer-links">
         <a href="#home">Back to top ↑</a>
         <a href="mailto:hello@example.com">Email</a>
