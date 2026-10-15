@@ -63,8 +63,27 @@ document.querySelector("#open-cart").addEventListener("click",openCart);
 document.querySelector("#close-cart").addEventListener("click",closeCart);
 overlay.addEventListener("click",closeCart);
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeCart();});
-document.querySelector("#checkout").addEventListener("click",()=>{
+const checkoutModal = document.querySelector("#checkout-modal");
+const checkoutForm = document.querySelector("#checkout-form");
+const trackingPanel = document.querySelector("#tracking-panel");
+function openCheckout(){
   if(!cart.size){showToast("Votre panier est vide pour le moment.");return;}
-  showToast("Démo uniquement : aucune commande ni paiement n’a été envoyé.");
+  document.querySelector("#checkout-total").textContent=document.querySelector("#subtotal").textContent;
+  trackingPanel.hidden=true;checkoutForm.hidden=false;checkoutModal.hidden=false;
+  document.body.style.overflow="hidden";document.querySelector("#checkout-close").focus();
+}
+function closeCheckout(){checkoutModal.hidden=true;document.body.style.overflow="";}
+document.querySelector("#checkout").addEventListener("click",openCheckout);
+document.querySelector("#checkout-close").addEventListener("click",closeCheckout);
+document.querySelector("#tracking-close").addEventListener("click",()=>{closeCheckout();closeCart();});
+checkoutModal.addEventListener("click",event=>{if(event.target===checkoutModal)closeCheckout();});
+checkoutForm.addEventListener("submit",event=>{
+  event.preventDefault();
+  if(!checkoutForm.reportValidity())return;
+  checkoutForm.hidden=true;trackingPanel.hidden=false;
+  document.querySelector("#tracking-message").textContent="Merci "+checkoutForm.elements.name.value.trim()+" ! Votre commande de démonstration est affichée ici uniquement.";
+  trackingPanel.querySelectorAll(".tracking-steps li").forEach((step,index)=>step.classList.toggle("complete",index===0));
+  showToast("Commande de démonstration créée — aucun envoi réel.");
 });
+document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!checkoutModal.hidden)closeCheckout();});
 renderProducts();updateCart();
