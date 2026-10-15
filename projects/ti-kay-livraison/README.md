@@ -1,6 +1,16 @@
-# Ti Kay Livraison 🌴
+# Ti Kay Livraison 🌴 — Commande de repas
 
 A responsive French-language food delivery website concept inspired by Caribbean flavours. Built as a front-end portfolio project.
+
+## Visual previews
+
+### Desktop preview
+![Aperçu desktop de Ti Kay Livraison](desktop-preview.svg)
+
+### Mobile preview
+![Aperçu mobile de Ti Kay Livraison](mobile-preview.svg)
+
+> These are illustrative SVG previews of the design, not screenshots captured from a running browser. They help visitors quickly understand the intended desktop and mobile layouts.
 
 ## Features
 - Responsive layout for desktop, tablet and mobile
@@ -14,6 +24,7 @@ A responsive French-language food delivery website concept inspired by Caribbean
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- SVG for visual previews
 
 ## Run locally
 Open `index.html` in a modern browser. No build step is required.
