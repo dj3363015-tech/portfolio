@@ -67,6 +67,27 @@
     <div class="cart-items" id="cart-items"><div class="empty-cart"><span>🧺</span><h3>Votre panier est tout léger</h3><p>Ajoutez un petit quelque chose de bon.</p></div></div>
     <div class="cart-bottom"><div class="subtotal"><span>Sous-total</span><strong id="subtotal">0,00 €</strong></div><p>Livraison et paiement réels non disponibles dans cette démo.</p><button class="button button-primary checkout-button" id="checkout">Tester la commande <span>↗</span></button></div>
   </aside>
+  <section class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
+    <div class="checkout-panel">
+      <button type="button" class="close-button checkout-close" id="checkout-close" aria-label="Fermer">×</button>
+      <p class="eyebrow">DERNIÈRE ÉTAPE</p><h2 id="checkout-title">Préparons votre livraison</h2>
+      <p class="checkout-intro">Formulaire de démonstration : aucune donnée n’est envoyée à un serveur.</p>
+      <form id="checkout-form">
+        <label>Nom complet<input name="name" autocomplete="name" required minlength="2" placeholder="Votre nom"></label>
+        <label>Téléphone<input name="phone" type="tel" autocomplete="tel" required pattern="[0-9+().\\s-]{6,}" placeholder="0696 00 00 00"></label>
+        <label>Adresse de livraison<textarea name="address" autocomplete="street-address" required minlength="5" rows="2" placeholder="Rue, ville, complément"></textarea></label>
+        <label>Instructions (facultatif)<textarea name="notes" rows="2" placeholder="Code portail, indications…"></textarea></label>
+        <div class="checkout-summary"><span>Total estimé</span><strong id="checkout-total">0,00 €</strong></div>
+        <button class="button button-primary" type="submit">Confirmer la commande de démo ↗</button>
+      </form>
+      <div class="tracking-panel" id="tracking-panel" hidden aria-live="polite">
+        <h3>Suivi de démonstration</h3><p id="tracking-message">Commande enregistrée localement pour cette démo.</p>
+        <ol class="tracking-steps"><li class="complete">Commande reçue</li><li>Préparation</li><li>En livraison</li><li>Livrée</li></ol>
+        <p class="demo-note">Le suivi est simulé : aucun livreur réel n’est contacté.</p>
+        <button type="button" class="button button-primary" id="tracking-close">Retour au menu</button>
+      </div>
+    </div>
+  </section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
