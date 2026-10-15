@@ -1,0 +1,9 @@
+{
+  "name": "ti-kay-livraison",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de démonstration de livraison avec Stripe Checkout côté serveur",
+  "dependencies": {
+    "stripe": "^18.5.0"
+  }
+}
