@@ -2,7 +2,7 @@
 **Junior Web Developer | Junior UX/UI Designer**
 
 Martinique, France · Open to relocation to Lyon and surrounding area  
-Phone: 0696 94 06 29 · Email: [Add your professional email]  
+Phone: 0696 94 06 29 · Email: dj3363015@gmail.com  
 Portfolio: https://dj3363015-tech.github.io/portfolio/  
 GitHub: https://github.com/dj3363015-tech
 
