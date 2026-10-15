@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12372a">
+  <meta name="description" content="Ti Kay Livraison — maquette de site de livraison de plats aux saveurs des Antilles.">
+  <title>Ti Kay Livraison — Les saveurs arrivent chez vous</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">🌴 Un petit goût des Antilles, livré jusqu’à votre porte</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Ti Kay Livraison, accueil"><span class="brand-mark">tk</span><span>ti kay<span class="brand-accent">.</span><small>LIVRAISON GOURMANDE</small></span></a>
+    <nav class="main-nav" aria-label="Navigation principale"><a href="#menu">Le menu</a><a href="#how">Comment ça marche</a><a href="#about">Notre esprit</a></nav>
+    <button class="cart-button" id="open-cart" aria-label="Ouvrir le panier">Panier <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> BONJOU, BON APPÉTIT !</p>
+        <h1>Le soleil des<br>Antilles, <em>chez vous.</em></h1>
+        <p class="hero-text">Des plats généreux, des saveurs créoles et une bonne dose de soleil. Choisissez vos envies, on s’occupe du reste.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#menu">Découvrir le menu <span>↗</span></a><div class="delivery-note"><span class="delivery-icon">◷</span><span><strong>Environ 30–45 min</strong><small>Estimation de démonstration</small></span></div></div>
+        <div class="hero-proof"><div class="avatar-stack"><span>🥘</span><span>🍍</span><span>🌶️</span></div><p><strong>Du goût, du cœur.</strong><br><small>Inspiré par la cuisine antillaise</small></p></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo" role="img" aria-label="Plat coloré aux inspirations antillaises"></div>
+        <div class="floating-note note-top"><span>☀</span><span><strong>100 % bonne humeur</strong><small>À chaque bouchée</small></span></div>
+        <div class="floating-note note-bottom"><span class="note-emoji">🍗</span><span><strong>Le poulet boucané</strong><small>Le grand favori</small></span><span class="note-price">12,90 €</span></div>
+        <div class="hero-stamp">FRAIS<br>ET LOCAL</div>
+      </div>
+    </section>
+
+    <section class="features" id="how">
+      <div><span class="feature-icon">✳</span><span><strong>Des recettes qui ont du soleil</strong><small>Des inspirations créoles et généreuses</small></span></div>
+      <div><span class="feature-icon">⌁</span><span><strong>Simple comme bonjou</strong><small>Choisissez, ajoutez, savourez</small></span></div>
+      <div><span class="feature-icon">♡</span><span><strong>Fait avec le cœur</strong><small>Une maquette pensée pour le plaisir</small></span></div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading"><div><p class="eyebrow">LA CARTE DU MOMENT</p><h2>Qu’est-ce qui vous<br><em>fait envie ?</em></h2></div><label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Chercher un plat…" aria-label="Chercher un plat"></label></div>
+      <div class="filters" role="group" aria-label="Filtrer les plats">
+        <button class="filter active" data-category="all">Tout le menu <span>06</span></button>
+        <button class="filter" data-category="plats">Plats créoles</button>
+        <button class="filter" data-category="snacks">À grignoter</button>
+        <button class="filter" data-category="boissons">Boissons</button>
+        <button class="filter" data-category="desserts">Douceurs</button>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="demo-note">Les plats et tarifs sont des exemples fictifs pour cette démonstration.</p>
+    </section>
+
+    <section class="promo" id="about"><div class="promo-pattern">✳</div><div><p class="eyebrow">UN PEU DE SOLEIL DANS LA JOURNÉE</p><h2>Les bons moments<br>commencent <em>à table.</em></h2><p>Un repas partagé, une pause bien méritée, une envie de saveurs créoles : il y a toujours une bonne raison de se faire plaisir.</p><a href="#menu" class="button button-light">Trouver mon bonheur <span>↗</span></a></div><div class="promo-art" aria-hidden="true">🍍<span>🌺</span>🥭</div></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">tk</span><span>ti kay<span class="brand-accent">.</span><small>LIVRAISON GOURMANDE</small></span></a><p>Une maquette de portfolio créée par Daniel Joseph · HTML, CSS & JavaScript</p><a href="https://github.com/dj3363015-tech" target="_blank" rel="noreferrer">Voir GitHub ↗</a></footer>
+
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Votre panier" aria-hidden="true">
+    <div class="cart-header"><div><p class="eyebrow">C’EST PRESQUE PRÊT</p><h2>Votre panier <span id="drawer-count">(0)</span></h2></div><button id="close-cart" class="close-button" aria-label="Fermer le panier">×</button></div>
+    <div class="cart-items" id="cart-items"><div class="empty-cart"><span>🧺</span><h3>Votre panier est tout léger</h3><p>Ajoutez un petit quelque chose de bon.</p></div></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Sous-total</span><strong id="subtotal">0,00 €</strong></div><p>Livraison et paiement réels non disponibles dans cette démo.</p><button class="button button-primary checkout-button" id="checkout">Tester la commande <span>↗</span></button></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
