@@ -276,7 +276,7 @@
     .art-sparkline svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .float-note {
       position: absolute;
-      right: 8%;
+      right: 11%;
       bottom: 14%;
       padding: 11px 15px;
       border-radius: 12px;
@@ -291,8 +291,8 @@
     .float-note span { display: inline-grid; width: 19px; height: 19px; margin-right: 5px; place-items: center; border-radius: 50%; background: var(--sunset); color: #10120d; }
     .side-caption {
       position: absolute;
-      bottom: 11%;
-      left: 3%;
+      bottom: 16%;
+      left: 6%;
       color: #aab1a8;
       font-size: .65rem;
       font-weight: 700;
@@ -513,7 +513,7 @@
       .hero-art::before { width: 315px; height: 315px; }
       .hero-art::after { width: 245px; height: 245px; }
       .orbit { width: 360px; }
-      .side-caption { left: -3%; }
+      .side-caption { left: 1%; }
       .intro-inner { align-items: start; flex-direction: column; justify-content: center; padding-block: 18px; gap: 10px; }
       .skill-list { justify-content: flex-start; }
       .section { padding-block: 88px; }
@@ -549,7 +549,7 @@
       h1 { max-width: 520px; font-size: clamp(2.9rem, 12.5vw, 4.4rem); }
       .hero-description { font-size: .96rem; }
       .hero-art { width: min(100%, 390px); min-height: 340px; justify-self: center; }
-      .side-caption { left: 2%; }
+      .side-caption { left: 4%; }
       .section { padding-block: 73px; }
       .section-heading { align-items: start; flex-direction: column; gap: 15px; margin-bottom: 28px; }
       .section-heading > p { margin: 0; }
