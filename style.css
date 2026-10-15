@@ -579,3 +579,11 @@
 /* Portfolio project preview images */
 .project-visual { overflow: hidden; }
 .project-screenshot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: inherit; }
+
+/* Ti Kay Livraison: larger project previews with a mobile companion image */
+.project-visual:has(.mobile-preview-link) { min-height: 420px; }
+.project-visual:has(.mobile-preview-link) > .project-screenshot { object-fit: cover; object-position: top center; }
+.mobile-preview-link { position: absolute; z-index: 3; right: 22px; bottom: 18px; width: 94px; height: 176px; padding: 4px; border: 2px solid #f8f6ef; border-radius: 16px; background: #f8f6ef; box-shadow: 0 12px 32px rgb(0 0 0 / 38%); overflow: hidden; text-decoration: none; }
+.mobile-preview-link img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; border-radius: 10px; }
+.mobile-preview-link span { position: absolute; left: 50%; bottom: 8px; width: max-content; max-width: 90px; transform: translateX(-50%); padding: 4px 6px; border-radius: 99px; background: #15392c; color: white; font-size: 8px; font-weight: 800; letter-spacing: .04em; }
+@media (max-width: 600px) { .project-visual:has(.mobile-preview-link) { min-height: 340px; } .mobile-preview-link { right: 12px; bottom: 12px; width: 70px; height: 132px; } }
