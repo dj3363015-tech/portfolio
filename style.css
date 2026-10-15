@@ -576,3 +576,6 @@
       .reveal { opacity: 1; transform: none; }
     }
   
+/* Portfolio project preview images */
+.project-visual { overflow: hidden; }
+.project-screenshot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: inherit; }
