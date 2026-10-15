@@ -1,34 +1,23 @@
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNavigation = document.querySelector(".site-navigation");
 
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector(".nav-links");
+function closeNavigation() {
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation");
+  siteNavigation.classList.remove("is-open");
+}
 
-    menuButton.addEventListener("click", () => {
-      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
-      menuButton.setAttribute("aria-expanded", String(!isExpanded));
-      navigation.classList.toggle("is-open", !isExpanded);
-    });
+menuToggle.addEventListener("click", () => {
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  menuToggle.setAttribute("aria-expanded", String(!isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+  siteNavigation.classList.toggle("is-open", !isOpen);
+});
 
-    navigation.addEventListener("click", (event) => {
-      if (event.target instanceof HTMLAnchorElement) {
-        menuButton.setAttribute("aria-expanded", "false");
-        navigation.classList.remove("is-open");
-      }
-    });
+siteNavigation.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeNavigation();
+});
 
-    document.querySelector("#year").textContent = new Date().getFullYear();
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries, currentObserver) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            currentObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-    } else {
-      document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
-    }
-  
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeNavigation();
+});
