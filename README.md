@@ -10,7 +10,7 @@ Portfolio personnel de Daniel Joseph, développeur web junior et designer UX/UI 
 - **Luma Store — Boutique en ligne :** [Ouvrir le projet](https://dj3363015-tech.github.io/portfolio/projects/luma-store/)
 - **Ti Kay Livraison — Commande de repas :** [Ouvrir le projet](https://dj3363015-tech.github.io/portfolio/projects/ti-kay-livraison/)
 - **Météo Claire — Application météo :** [Ouvrir le projet](https://dj3363015-tech.github.io/portfolio/projects/meteo-claire/)
-- **Nexus Arena — Univers gaming :** [Ouvrir le projet](https://dj3363015-tech.github.io/portfolio/projects/nexus-arena/)
+- **Nexus Arena — Jeu d’arcade spatial jouable :** [Jouer en ligne](https://dj3363015-tech.github.io/portfolio/projects/nexus-arena/)
 - **Pulse Finance — Tableau de bord financier :** [Ouvrir le projet](https://dj3363015-tech.github.io/portfolio/projects/pulse-finance/)
 
 ## À propos
@@ -21,7 +21,7 @@ Je suis basé en Martinique et mobile vers Lyon et sa région. Je cherche une pr
 
 - **HTML** — structure sémantique des pages.
 - **CSS** — mise en page, styles et adaptation aux écrans.
-- **JavaScript** — interactions de l’interface.
+- **JavaScript** — interactions, mécanique de jeu et commandes.
 - **Figma** — pratique de la conception d’interfaces UX/UI.
 - **Git et GitHub** — gestion de versions et publication.
 
@@ -29,7 +29,8 @@ Je suis basé en Martinique et mobile vers Lyon et sa région. Je cherche une pr
 
 - Organiser le contenu en sections claires et faciles à parcourir.
 - Créer des interfaces adaptées aux écrans mobiles et ordinateurs.
-- Ajouter des interactions simples en JavaScript.
+- Ajouter des interactions et des mécaniques de jeu en JavaScript.
+- Créer un jeu d’arcade jouable avec commandes clavier et tactiles, vagues d’ennemis, score et meilleur score local.
 - Présenter les projets avec des liens directs vers leurs démonstrations.
 
 ## Liens
